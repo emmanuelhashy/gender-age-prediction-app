@@ -7,7 +7,7 @@ import Clarifai from 'clarifai'
 
 // creating an instance of Clarifai 
 const app = new Clarifai.App({
- apiKey: '6d0b41b28c784f46a39b27afee249e22'
+ apiKey: 'YOUR CLARIFAI API KEY'
 });
 
 let rank = 1;
@@ -38,20 +38,13 @@ class App extends Component {
       const image = document.getElementById('image');
       const width = Number(image.width);
       const height = Number(image.height);
-      console.log(height, width);
 
       return {
         leftCol: faceBox.left_col * width,
         rightCol: width - (faceBox.right_col * width),
         topRow: faceBox.top_row * height,
         bottomRow: height - (faceBox.bottom_row * height)
-      }
-        
-      
-      
-
-      
-      
+      }    
     })
     return clarifaiFaces;
       
@@ -83,11 +76,9 @@ class App extends Component {
   }
   incrementRank = () => {
     this.setState({rank: rank++});
-    console.log(this.state.rank)
   }
 
   displayFaceBox = (faceBoxes) => {
-    console.log(faceBoxes)
     this.setState({boxes: faceBoxes})
   }
 
@@ -105,7 +96,6 @@ class App extends Component {
       this.displayFaceBox(this.calculateFaceLocation(response)) 
       this.displayFaceBio(this.faceBioDetection(response));
       this.incrementRank(); 
-      console.log(response);
     })
     .catch(err => console.log(err)); 
     
