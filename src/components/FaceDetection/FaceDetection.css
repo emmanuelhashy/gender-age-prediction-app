@@ -1,0 +1,17 @@
+.Img-detect:not(:last-child) {
+    margin-bottom: 2rem; 
+}
+
+.img-detect {
+    position: relative;
+}
+    
+.face-box {
+    position: absolute;
+    border: 1px solid #09a1ff;
+    box-shadow: 0 0 5px #043b5e inset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
